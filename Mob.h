@@ -1,6 +1,6 @@
 /*in-game mobs*/
 #include "Loot.h"
-#include<list>
+#include<vector>
 enum class statuseffect {
 	NONE,
 	POISON,
@@ -10,32 +10,38 @@ enum class statuseffect {
 class mob {
 private:
 	std::string name;
-	unsigned int atk;
-	unsigned int def;
-	unsigned int health;
+	 int atk;
+	 int def;
+	 int health;
 	statuseffect effect;
-	std::list<loot> lootlist;
+	std::vector<loot> lootvector;
 protected:
-	mob(std::string name, unsigned int atk, unsigned int def, unsigned int health, statuseffect effect, std::list<loot> lootlist) {
+	mob(std::string name,  int atk,  int def,  int health, statuseffect effect, std::vector<loot> lootvector) {
 		this->name = name;
 		this->atk = atk;
 		this->def = def;
 		this->effect = effect;
 		this->health = health;
-		this->lootlist = lootlist;
+		this->lootvector = lootvector;
 	}
 public:
-	virtual unsigned int get_atk() {
+	virtual  int get_atk() {
 		return this->atk;
 	}
-	virtual unsigned int get_def() {
+	virtual  int get_def() {
 		return this->def;
 	}
 	virtual statuseffect get_effect() {
 		return this->effect;
 	}
-	virtual std::list<loot> get_list() {
-		return this->lootlist;
+	virtual std::vector<loot> get_vector() {
+		return this->lootvector;
+	}
+	virtual  int get_health() {
+		return this->health();
+	}
+	virtual void set_health(int health) {
+		this->health = health;
 	}
 	virtual loot get_loot(size_t spec) = 0;
 	//check get functions
@@ -50,9 +56,9 @@ public:
 	loot get_loot(size_t spec) override {
 		switch (spec) {
 		case 1:
-			return this->get_list().front();
+			return this->get_vector().front();
 		case 2:
-			return this->get_list().back();
+			return this->get_vector().back();
 		}
 	}
 };
@@ -64,9 +70,9 @@ public:
 	loot get_loot(size_t spec) override {
 		switch (spec) {
 		case 1:
-			return this->get_list().front();
+			return this->get_vector().at(1);
 		case 2:
-			return this->get_list().back();
+			return this->get_vector().at(2);
 		}
 	}
 };
@@ -78,9 +84,9 @@ public:
 	loot get_loot(size_t spec) override {
 		switch (spec) {
 		case 1:
-			return this->get_list().front();
+			return this->get_vector().at(1);
 		case 2:
-			return this->get_list().back();
+			return this->get_vector().at(2);
 		}
 	}
 };
