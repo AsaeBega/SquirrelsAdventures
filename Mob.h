@@ -51,7 +51,7 @@ public:
 // MEADOW LOCKATION MOBS
 class ant : public mob {
 public:
-	ant() : mob("Ant", 20, 10, 100, statuseffect::POISON, {loot("Ant Mandible"), loot("Ant Claw")}) {
+	ant() : mob("Ant", 20, 10, 100, statuseffect::POISON, { loot("Ant Mandible"), loot("Ant Claw") }) {
 	}
 	loot get_loot(size_t spec) override {
 		switch (spec) {
