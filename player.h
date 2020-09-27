@@ -75,6 +75,18 @@ public:
 	 int get_lvl() {
 		 return this->level;
 	 }
+	 weapon get_weapon() {
+		 return this->hands;
+	 }
+	 helmet get_helmet() {
+		 return this->head;
+	 }
+	 armor get_armor() {
+		 return this->get_armor;
+	 }
+	 boots get_boots() {
+		 return this->legs;
+	 }
 	 ///////////////////////////////////////////////////////////
 
 	void set_health(int health) {

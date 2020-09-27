@@ -24,13 +24,13 @@ public:
 	std::vector<mob> get_moblist() {
 		return this->moblist;
 	}
-	virtual mob get_mob_for_encounter(size_t spec) = 0;
+	virtual mob get_mob_for_encounter(int spec) = 0;
 };
 
 class meadow : public location {
 public:
 	meadow() : location("Meadow", 5, {ant(), beetle(), snail()}) {}
-	mob get_mob_for_encounter(size_t spec) override {
+	mob get_mob_for_encounter(int spec) override {
 		switch (spec)
 			case 1:
 				return this->get_moblist().at(1);
