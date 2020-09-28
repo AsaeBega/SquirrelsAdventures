@@ -1,3 +1,4 @@
+#pragma once
 /*in-game mobs*/
 #include "Loot.h"
 #include<vector>

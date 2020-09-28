@@ -8,18 +8,18 @@ enum class weapontype {
 	WAND
 };
 
-class weapon :public item {
+class weapon : public item {
 private:
 	weapontype type;
 	int atk;
 	int def;
-protected:
+	protected:
 	weapon(int atk, int def, weapontype type, std::string name) :item(name) {
 		this->atk = atk;
 		this->def = def;
 		this->type = type;
-		this->name = name;
 	}
+public:
 	weapon() :item("Empty Slot") {
 		this->atk = 0;
 		this->def = 0;
@@ -35,9 +35,9 @@ public:
 	weapontype get_type() {
 		return this->type;
 	}
-	void put_on_weapon(player user) {
+	/*void put_on_weapon(player user) {
 
-	}
+	}*/
 };
 
 class meadowbow : public weapon {
@@ -50,5 +50,5 @@ class antlersword : public weapon {
 };
 
 class wandofsnailking : public weapon {
-	wandofsnailking() : weapon(10, 0, weapontype::WAND, "Wand of Snail King")
+	wandofsnailking() : weapon(10, 0, weapontype::WAND, "Wand of Snail King") {}
 };

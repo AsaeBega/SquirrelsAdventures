@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "item.h"
 
@@ -12,6 +13,7 @@ protected:
 		this->def = def;
 		this->hp = hp;
 	}
+public:
 	helmet() : item("Empty Slot") {
 		this->atk = 0;
 		this->def = 0;
@@ -40,6 +42,7 @@ protected:
 		this->def = def;
 		this->hp = hp;
 	}
+public:
 	armor() : item("Empty Slot") {
 		this->atk = 0;
 		this->def = 0;
@@ -68,6 +71,7 @@ protected:
 		this->def = def;
 		this->hp = hp;
 	}
+public:
 	boots() : item("Empty Slot") {
 		this->atk = 0;
 		this->def = 0;
